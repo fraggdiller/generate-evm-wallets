@@ -1,6 +1,6 @@
-# Генерация Metamask кошельков
+# Генерация EVM кошельков
 
-Этот код позволит сгенерировать заданное количество Metamask кошельков и сохранить их в файлы.
+Этот код позволит сгенерировать заданное количество EVM кошельков и сохранить их в файлы.
 
 ## Установка зависимостей
 
@@ -18,13 +18,14 @@ pip install openpyxl eth_account bip_utils
 pip install -r requirements.txt
 ```
 ## Генерация кошельков
-Чтобы сгенерировать Ethereum кошельки, запустите скрипт и введите количество кошельков, которые требуется сгенерировать.
+Чтобы сгенерировать EVM кошельки, запустите скрипт и введите количество кошельков, которые требуется сгенерировать.
 
 ```python
 num_wallets = int(input("Введите количество кошельков для генерации: "))
-wallets = generate_wallets(num_wallets)
-save_wallets_to_xlsx(wallets, 'wallets.xlsx')
-save_wallets_to_files(wallets)
+
+wallet_generator = WalletGenerator(num_wallets)
+wallet_generator.generate_wallets()
+
 print(f"{num_wallets} кошельков сгенерировано и сохранено в файлах")
 ```
 ## Сохранение в файлы
